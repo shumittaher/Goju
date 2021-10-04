@@ -1,23 +1,61 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './components/Home/Home'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Header from './components/Header/Header';
+import Classes from './components/Classes/Classes';
+import Staff from './components/Staff/Staff';
+import NotFound from './NotFound/NotFound';
+import Showcase from './components/Showcase/Showcase';
+import About from './components/About/About';
+import Footer from './components/Footer/Footer';
+import { useState, useEffect } from 'react';
 
 function App() {
+
+
+  const [courses, setCourses] = useState([])
+  useEffect(() => {
+      fetch("./data.JSON")
+          .then(res => res.json())
+          .then(data => setCourses(data))
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+      <Router>
+
+        <Header></Header>
+
+        <Switch>
+          <Route exact path="/">
+            <Home courses={courses}></Home>
+          </Route>
+          <Route path="/home">
+            <Home courses={courses}></Home>
+          </Route>
+          <Route path="/classes">
+            <Classes courses={courses}></Classes>
+          </Route>
+          <Route path="/staff">
+            <Staff></Staff>
+          </Route>
+
+          <Route path="/showcase">
+            <Showcase></Showcase>
+          </Route>
+
+          <Route path="/about">
+            <About></About>
+          </Route>
+
+          <Route path="*">
+            <NotFound></NotFound>
+          </Route>
+        </Switch>
+        <Footer></Footer>
+      </Router>
+
     </div>
   );
 }
