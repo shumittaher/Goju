@@ -4,21 +4,12 @@ import { Link } from 'react-router-dom';
 import car1 from "../../images/big-banner.jfif"
 import Staff from '../Staff/Staff';
 import Course from './../Course/Course';
-import { useState, useEffect } from 'react';
 
 
 const Home = (props) => {
   const courses = props.courses
-
-  const [smallCourses, setSmallCourses] = useState([])
-  useEffect(() => {
-    let smallCoursess = []
-    for (let index = 0; index < 4; index++) {
-      const element = courses[index];
-      smallCoursess.push(element)
-    };
-    setSmallCourses(smallCoursess)
-  }, [courses])
+  let smallCourses = [...courses]
+  smallCourses.pop()
 
   return (
     <div>
@@ -77,7 +68,7 @@ const Home = (props) => {
 
         {
           smallCourses.map((details) => <Course
-            key={details.courseID}
+            key={details.courseID + 'details.courseID'}
             details={details}
           ></Course>)
 

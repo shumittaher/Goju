@@ -15,7 +15,7 @@ const Staff = () => {
     return (
         <div className="flex justify-evenly	my-20">
             {trainer.map((person) => <IndiStaff 
-            key={person.name}
+            key={person.Name}
             person={person}></IndiStaff>)
             }
 
