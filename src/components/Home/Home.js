@@ -49,8 +49,7 @@ const Home = (props) => {
         </div>
       </div>
       <div>
-        <Staff></Staff>
-
+        <Staff>from home</Staff>
       </div>
 
       <div className="flex justify-center">

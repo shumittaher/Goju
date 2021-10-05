@@ -2,7 +2,16 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import IndiStaff from '../IndividualStaff/IndiStaff';
 
-const Staff = () => {
+const Staff = (props) => {
+
+    const children= props.children
+    let showDescription = true
+    if (children ==="from home") {
+        showDescription = false
+    } else {
+        showDescription = true
+    }
+
 
     const [trainer, setTrainer] = useState([])
     useEffect(() => {
@@ -11,13 +20,15 @@ const Staff = () => {
             .then(data => setTrainer(data))
     }, [])
 
+    
 
     return (
-        
+
         <div className="flex justify-evenly	my-20">
-            {trainer.map((person) => <IndiStaff 
-            key={person.Name}
-            person={person}> 
+            {trainer.map((person) => <IndiStaff
+                key={person.Name}
+                person={person}
+                showDescription={showDescription}>
             </IndiStaff>)
             }
 
