@@ -24,7 +24,7 @@ const Staff = (props) => {
 
     return (
 
-        <div className="flex justify-evenly	my-20">
+        <div className="flex flex-row flex-wrap	justify-evenly my-20">
             {trainer.map((person) => <IndiStaff
                 key={person.Name}
                 person={person}

@@ -8,7 +8,7 @@ const course = (props) => {
     return (
         <div>
 
-            <div className="bg-gray-600 rounded-lg  p-4 text-white h-full">
+            <div className="bg-gray-600 rounded-lg my-2 p-4 text-white h-full">
 
                 <img src={image} alt="" className="object-cover rounded-lg border-0 h-60 w-full" />
 

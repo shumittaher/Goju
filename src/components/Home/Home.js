@@ -48,11 +48,12 @@ const Home = (props) => {
           />
         </div>
       </div>
+      
       <div>
         <Staff>from home</Staff>
       </div>
 
-      <div className="flex justify-center">
+      <div>
         <Link to="/staff" className="w-full flex justify-center">
           <button className="px-8 py-3 w-3/4 border-transparent font-medium rounded-md text-white bg-green-400 hover:bg-white  hover:text-green-400">
             See Our Staff</button>
@@ -61,8 +62,8 @@ const Home = (props) => {
 
 
 
-      <section className="my-12 p-5 border-8 border-green-400	  border-solid	 rounded-lg grid grid-cols-4 gap-4 auto-rows-min	">
-
+      <section className="my-12  md:mx-10 p-5 border-8 border-green-400	border-solid rounded-lg grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2  gap-4">
+       
         {
           listCourses.map((details) => <Course
             key={details.courseID + 'details.courseID'}
@@ -70,14 +71,14 @@ const Home = (props) => {
           ></Course>)
         }
 
-        <div className="flex justify-center col-span-4 my-5">
+
+      </section>
+      <div className="flex justify-center col-span-4 my-5">
           <Link to="/Classes" className="w-full flex justify-center">
             <button className="px-8 py-3 w-3/4 border-transparent font-medium rounded-md text-white bg-green-400 hover:bg-white  hover:text-green-400">
               See More Courses</button>
           </Link>
         </div>
-
-      </section>
 
 
     </div>
