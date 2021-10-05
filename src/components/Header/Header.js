@@ -1,9 +1,40 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import logo from '../../images/goju-fist.png'
+import { useState, useEffect } from 'react';
 
 
 const Header = () => {
+
+    const [menuStyle, setMenuStyle] = useState({ display: "none" })
+    const [menuToggle, setMenuToggle] = useState(false)
+
+
+    useEffect(() => {
+
+        if (menuToggle === true) {
+            setMenuStyle({ display: "block" })
+        } else {
+            setMenuStyle({ display: "none" })
+        }
+
+    }, [menuToggle])
+
+    const handleToggle = () => {
+        
+        if (menuToggle === true) {
+            setMenuToggle(false)
+
+        } else {
+            
+            setMenuToggle(true)
+
+        }
+
+    }
+
+
+
     return (
         <div >
             <nav className="bg-gray-600 text-white h-32	text-xl	flex items-center  justify-center ">
@@ -11,11 +42,28 @@ const Header = () => {
                     <img className="h-32" src={logo} alt="" />
                 </div>
                 <div className="text-white h-32	text-xl	inline-flex justify-center items-center ">
-                    <NavLink className="m-8	hover:text-green-400" to="/home">Home</NavLink>
-                    <NavLink className="m-8 hover:text-green-400	" to="/classes">Our Classes</NavLink>
-                    <NavLink className="m-8 hover:text-green-400" to="/staff">Our Staff</NavLink>
-                    <NavLink className="m-8 hover:text-green-400	" to="/showcase">Showcase</NavLink>
-                    <NavLink className="m-8 hover:text-green-400" to="/about">About Us</NavLink>
+
+                    <NavLink className="m-8	hover:text-green-400 hover:bg-gray-800" to="/home">Home</NavLink>
+                    <NavLink className="m-8 hover:text-green-400 hover:bg-gray-800	" to="/classes">Our Classes</NavLink>
+                    <div className="hidden md:contents">
+                        <NavLink className="m-8 hover:text-green-400 hover:bg-gray-800" to="/staff">Our Staff</NavLink>
+                        <NavLink className="m-8 hover:text-green-400 hover:bg-gray-800	" to="/showcase">Showcase</NavLink>
+                        <NavLink className="m-8 hover:text-green-400 hover:bg-gray-800" to="/about">About Us</NavLink>
+                    </div>
+
+                    <button className="md:hidden" onClick={handleToggle}>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+
+                        <div className="text-green-400 bg-white absolute right-5 z-10" style={menuStyle}>
+                            <NavLink className="m-8 block hover:text-green-400 hover:bg-gray-800" to="/staff">Our Staff</NavLink>
+                            <NavLink className="m-8 block hover:text-green-400 hover:bg-gray-800" to="/showcase">Showcase</NavLink>
+                            <NavLink className="m-8 block hover:text-green-400 hover:bg-gray-800" to="/about">About Us</NavLink>
+                        </div>
+
+                    </button>
+
                 </div>
             </nav>
         </div>

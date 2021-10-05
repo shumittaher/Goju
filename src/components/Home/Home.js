@@ -8,7 +8,6 @@ import Course from './../Course/Course';
 
 const Home = (props) => {
   const listCourses = props.listCourses
-  console.log('from Home, Listcourses ', listCourses)
 
   return (
     <div>
