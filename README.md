@@ -1,4 +1,6 @@
-site is deployed at 
+This is a website for a Local Karate School and club
+
+Site is deployed at 
 https://gojuryubd.netlify.app/
 
 this is a website promoting a Bangladeshi Karate School and Club. here you can find the following:
@@ -8,3 +10,6 @@ this is a website promoting a Bangladeshi Karate School and Club. here you can f
 3. in the showcase section our acheivements so far can be found
 4. Our contact details.
 
+Site developed by 
+Shumit Ibne Taher
+shumitt@gmail.com

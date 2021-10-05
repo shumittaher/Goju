@@ -7,9 +7,8 @@ import Course from './../Course/Course';
 
 
 const Home = (props) => {
-  const courses = props.courses
-  let smallCourses = [...courses]
-  smallCourses.pop()
+  const listCourses = props.listCourses
+  console.log('from Home, Listcourses ',listCourses)
 
   return (
     <div>
@@ -53,25 +52,23 @@ const Home = (props) => {
         <Staff></Staff>
 
       </div>
-      <div className="flex items-center justify-center">
 
-        <button className="px-8 py-3   border-transparent font-medium rounded-md text-white bg-green-400 hover:bg-white  hover:text-green-400">
-          <Link
-            to="/staff"
-          >
-            See Our Staff</Link>
-        </button>      </div>
+      <div className="flex justify-center">
+        <Link to="/staff" className="w-full flex justify-center">
+          <button className="px-8 py-3 w-3/4 border-transparent font-medium rounded-md text-white bg-green-400 hover:bg-white  hover:text-green-400">
+            See Our Staff</button>
+        </Link>
+      </div>
 
 
 
       <section className="my-12 p-5 border-8 border-green-400	  border-solid	 rounded-lg grid grid-cols-4 gap-4 auto-rows-min	">
 
         {
-          smallCourses.map((details) => <Course
+          listCourses.map((details) => <Course
             key={details.courseID + 'details.courseID'}
             details={details}
           ></Course>)
-
         }
       </section>
     </div>

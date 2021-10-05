@@ -15,10 +15,24 @@ function App() {
 
   const [courses, setCourses] = useState([])
   useEffect(() => {
-      fetch("./data.JSON")
-          .then(res => res.json())
-          .then(data => setCourses(data))
+    fetch("./data.JSON")
+      .then(res => res.json())
+      .then(data => setCourses(data))
   }, [])
+
+  console.log('from app, courses ', courses)
+
+  const [listCourses, setListCourses] = useState([])
+  useEffect(() => {
+    let smallCourses = []
+    for (let index = 0; index < courses.length; index++) {
+      smallCourses.push(courses[index]);
+      if (index===3) break
+    }
+    setListCourses(smallCourses)
+  }, [courses])
+
+  console.log('from app, listCourses ', listCourses)
 
   return (
     <div>
@@ -29,10 +43,10 @@ function App() {
 
         <Switch>
           <Route exact path="/">
-            <Home courses={courses}></Home>
+            <Home listCourses={listCourses}></Home>
           </Route>
           <Route path="/home">
-            <Home courses={courses}></Home>
+            <Home listCourses={listCourses}></Home>
           </Route>
           <Route path="/classes">
             <Classes courses={courses}></Classes>
