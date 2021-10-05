@@ -9,7 +9,7 @@ const Classes = (props) => {
     return (
         <div>
 
-            <div className="m-4 grid grid-cols-4 gap-4">
+            <div className="m-4 grid lg:grid-cols-4 sm:grid-cols-2 gap-4 md:mx-10">
                 {
                     courses.map((details) => <Course
                         key={details.courseID}

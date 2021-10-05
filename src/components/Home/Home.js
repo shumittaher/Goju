@@ -8,7 +8,7 @@ import Course from './../Course/Course';
 
 const Home = (props) => {
   const listCourses = props.listCourses
-  console.log('from Home, Listcourses ',listCourses)
+  console.log('from Home, Listcourses ', listCourses)
 
   return (
     <div>
@@ -70,7 +70,17 @@ const Home = (props) => {
             details={details}
           ></Course>)
         }
+
+        <div className="flex justify-center col-span-4 my-5">
+          <Link to="/Classes" className="w-full flex justify-center">
+            <button className="px-8 py-3 w-3/4 border-transparent font-medium rounded-md text-white bg-green-400 hover:bg-white  hover:text-green-400">
+              See More Courses</button>
+          </Link>
+        </div>
+
       </section>
+
+
     </div>
   )
 }
