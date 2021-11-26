@@ -10,7 +10,7 @@ const Showcase = () => {
     return (
         <div>
 
-            <div className="m-10 p-5 border-8 border-green-400	  border-solid	 rounded-lg grid grid-cols-2 gap-4">
+            <div className="m-10 p-5 border-8 border-green-400	  border-solid	 rounded-lg grid lg:grid-cols-2 grid-cols-1 gap-4">
 
                <div>
                    <img className="object-contain	  border rounded-lg" src={bigPicture1} alt="" />

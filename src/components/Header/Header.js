@@ -1,40 +1,14 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import logo from '../../images/goju-fist.png'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 
 const Header = () => {
 
-    const [menuStyle, setMenuStyle] = useState({ display: "none" })
-    const [menuToggle, setMenuToggle] = useState(false)
-
-
-    useEffect(() => {
-
-        if (menuToggle === true) {
-            setMenuStyle({ display: "block" })
-        } else {
-            setMenuStyle({ display: "none" })
-        }
-
-    }, [menuToggle])
-
-    const handleToggle = () => {
-        
-        if (menuToggle === true) {
-            setMenuToggle(false)
-
-        } else {
-            
-            setMenuToggle(true)
-
-        }
-
-    }
-
-
-
+    const [menuStyle, setMenuStyle] = useState("none")
+    const handleToggle = () => menuStyle === "none"?setMenuStyle("block"):setMenuStyle("none")
+   
     return (
         <div >
             <nav className="bg-gray-600 text-white h-32	text-xl	flex items-center  justify-center ">
@@ -56,7 +30,7 @@ const Header = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
 
-                        <div className="text-green-400 bg-white absolute right-5 z-10" style={menuStyle}>
+                        <div className="text-green-400 bg-white absolute right-5 z-10" style={{ display: `${menuStyle}`}}>
                             <NavLink className="m-8 block hover:text-green-400 hover:bg-gray-800" to="/staff">Our Staff</NavLink>
                             <NavLink className="m-8 block hover:text-green-400 hover:bg-gray-800" to="/showcase">Showcase</NavLink>
                             <NavLink className="m-8 block hover:text-green-400 hover:bg-gray-800" to="/about">About Us</NavLink>
